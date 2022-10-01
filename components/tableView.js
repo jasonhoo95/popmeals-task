@@ -5,7 +5,6 @@ export default function TableView({ data }) {
 		data: [],
 	});
 	useEffect(() => {
-		console.log(data, Date.parse(new Date()), "fetch data");
 		let mainData = [];
 		if (data) {
 			data.orders.map((o) => {
