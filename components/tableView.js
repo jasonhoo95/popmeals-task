@@ -7,7 +7,10 @@ export default function TableView({ data }) {
 	useEffect(() => {
 		let mainData = [];
 		if (data) {
-			data.orders.map((o) => {
+			let sortOrder = data.orders.sort(function (a, b) {
+				return b.arrives_at_utc - a.arrives_at_utc;
+			});
+			sortOrder.map((o) => {
 				o.date = moment(o.arrives_at_utc).format("dddd, L");
 				o.time = moment(o.arrives_at_utc).format("LT");
 				if (o.arrives_at_utc < Date.parse(new Date())) {
